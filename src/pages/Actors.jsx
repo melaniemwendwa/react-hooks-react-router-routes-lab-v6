@@ -7,7 +7,7 @@ function Actors() {
   useEffect(() => {
     fetch("http://localhost:4000/actors")
       .then((res) => res.json())
-      .then(setActors);
+      .then((data) => setActors(data));
   }, []);
 
   return (
@@ -21,8 +21,8 @@ function Actors() {
           <article key={actor.name}>
             <h2>{actor.name}</h2>
             <ul>
-              {actor.movies.map((movie, idx) => (
-                <li key={idx}>{movie}</li>
+              {actor.movies.map((movie, index) => (
+                <li key={index}>{movie}</li>
               ))}
             </ul>
           </article>
@@ -33,3 +33,4 @@ function Actors() {
 }
 
 export default Actors;
+

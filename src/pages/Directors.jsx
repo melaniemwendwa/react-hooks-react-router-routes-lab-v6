@@ -7,7 +7,7 @@ function Directors() {
   useEffect(() => {
     fetch("http://localhost:4000/directors")
       .then((res) => res.json())
-      .then(setDirectors);
+      .then((data) => setDirectors(data));
   }, []);
 
   return (
@@ -21,8 +21,8 @@ function Directors() {
           <article key={director.name}>
             <h2>{director.name}</h2>
             <ul>
-              {director.movies.map((movie, idx) => (
-                <li key={idx}>{movie}</li>
+              {director.movies.map((movie, index) => (
+                <li key={index}>{movie}</li>
               ))}
             </ul>
           </article>

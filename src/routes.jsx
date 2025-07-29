@@ -2,26 +2,56 @@ import Home from "./pages/Home";
 import Directors from "./pages/Directors";
 import Actors from "./pages/Actors";
 import Movie from "./pages/Movie";
-import ErrorPage from "./components/errorPage";
+import ErrorPage from "./pages/ErrorPage";
+import NavBar from "./components/NavBar";
 
-const routes = [
+
+export const routes = [
   {
     path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />
+    element: (
+      <>
+        <NavBar />
+        <Home />
+      </>
+    ),
+    errorElement: (
+      <>
+        <NavBar />
+        <ErrorPage />
+      </>
+    ),
   },
   {
     path: "/directors",
-    element: <Directors />
+    element: (
+      <>
+        <NavBar />
+        <Directors />
+      </>
+    ),
   },
   {
     path: "/actors",
-    element: <Actors />
+    element: (
+      <>
+        <NavBar />
+        <Actors />
+      </>
+    ),
   },
   {
     path: "/movie/:id",
-    element: <Movie />
-  }
+    element: (
+      <>
+        <NavBar />
+        <Movie />
+      </>
+    ),
+  },
 ];
 
-export default routes;
+
+import { createBrowserRouter } from "react-router-dom";
+const router = createBrowserRouter(routes);
+export default router;
